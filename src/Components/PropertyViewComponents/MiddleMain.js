@@ -415,12 +415,6 @@ function MiddleMain() {
                 <div className='TopElM ldM'>
                   <p>About Developer</p>
                   <div className='d-flex dfvb'>
-                    <img
-                      src={Image2}
-                      alt='Developer Image'
-                      srcset=''
-                      className='divImg'
-                    />
                     <span className='discR'>
                       Lorem ipsum dolor sit amet consectetur adipisicing elit.
                       Maxime odit unde perferendis sunt quas quasi tenetur est
