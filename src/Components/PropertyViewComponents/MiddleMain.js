@@ -51,6 +51,7 @@ function MiddleMain() {
       </div>
       )
   }
+  const StatusFinal = status.charAt(0).toUpperCase() + status.slice(1);
   const properties = [1, 2, 3, 4, 5, 6, 7, 8];
   const amenitiesFinal=amentites[0].split(",");
   console.log(BHK_details)
@@ -115,7 +116,7 @@ function MiddleMain() {
             <li className='lIst_Hover'>
               <a href='#amenities'>Amenities</a>
             </li>
-            <li className='lIst_Hover'>Broucher</li>
+            <li className='lIst_Hover'>Brochure</li>
             <li className='lIst_Hover'>
               <a href='#location-map'>Location Map</a>
             </li>
@@ -162,7 +163,7 @@ function MiddleMain() {
             </div>
             <div className='mlsM'>
               <span>Status</span>
-              <p className='NNO'>{status}</p>
+              <p className='NNO'>{StatusFinal}</p>
             </div>
             <div className='mlsM'>
               <span>Rera No</span>
@@ -190,11 +191,7 @@ function MiddleMain() {
                     <div>
                       <p>Floor Plans</p>
                     </div>
-                    <div>
-                      <button className='btnApart bor-red-20'>2 BHK</button>
-                      <button className='btnApart bor-red-20'>3 BHK</button>
-                      <button className='btnApart bor-red-20'>4 BHK</button>
-                    </div>
+                    
                   </div>
                   <div className='d-flex'>
                     <Carousel show={1} slide={1} swiping={true} dynamic={true} rightArrow={<div className="cmNIdpO">{">"}</div>} leftArrow={<div className="cmNIdpO">{"<"}</div>}>
