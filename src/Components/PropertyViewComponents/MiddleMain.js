@@ -141,7 +141,7 @@ function MiddleMain() {
                 <span>{location}</span>
               </div>
             </div>
-            <div className='ndMO'>₹ {price}</div>
+            <div className='ndMO'>₹ {price} Cr</div>
           </div>
           <div>
           <img src={photo[0].url} alt="" style={{width:"100%",borderRadius:"15px",height:"500px"}}/>

@@ -6,9 +6,13 @@ import Modal from 'react-bootstrap/Modal';
 import { useProductContext } from "../../Context/productContext";
 import PropertyCard from "./PropertyCard";
 import Table from 'react-bootstrap/Table';
+import { useEnquiryContext } from "../../Context/enquiryContext";
 
 function AdminMain() {
   const {PreLaunchProperties,isPreLaunchLoading} = useProductContext();
+  const {FrontPageEnquiries,isfrontEnquiriesLoading} = useEnquiryContext();
+
+  console.log(FrontPageEnquiries);
 
   const[loggedIn,setLoggedIn] = useState(true);
   const [show, setShow] = useState(false);
@@ -179,7 +183,7 @@ function AdminMain() {
       HandleLog();
     })
   }
-  if(isPreLaunchLoading){
+  if(isPreLaunchLoading || isfrontEnquiriesLoading){
     return <div>...Loading</div>
   }
   return (
@@ -545,6 +549,7 @@ function AdminMain() {
 
             {selectedTab === "EnquiriesSection" && (
               <div className='mainSed'>
+              <div className="" style={{marginBottom:"10px",fontSize:"large",fontWeight:"bold"}}>Enquiries Received</div>
               <Table striped bordered hover>
               <thead>
                 <tr>
@@ -556,31 +561,23 @@ function AdminMain() {
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
+              {FrontPageEnquiries.map((elem,index)=>{
+                var count =index+1;
+                return(
+                  <tr>
+                  <td>{count}</td>
+                  <td>{elem.name}</td>
+                  <td>+91 {elem.mobile}</td>
+                  <td>{elem.email}</td>
                   <td className="text-center">
                   <button className="btn btn-sm btn-success px-2">View</button>
                   <button className="btn btn-sm px-2">Edit</button>
-                  <button className="btn btn-sm btn-danger px-2">Delete</button>
+                  <button className="btn btn-sm btn-danger px-2">Complete</button>
                   </td>
                 </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                  <td></td>
-                </tr>
-                <tr>
-                <td>2</td>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-                <td></td>
-                </tr>
+                )
+                
+              })}
               </tbody>
             </Table>
               </div>
@@ -591,13 +588,17 @@ function AdminMain() {
           </div>
         </div>
       </div>
-            }
+      }
     </Wrapper>
   );
 }
 
 export default AdminMain;
 const Wrapper = styled.section`
+.hjMmlm section{
+  display:none !important;
+  visibility:none !important;
+}
 .dddddd input{
   width:100%;
 }
@@ -621,6 +622,7 @@ const Wrapper = styled.section`
     padding: 20px;
     cursor: pointer;
   }
+  
   .active {
     color: red !important;
     background: white;
