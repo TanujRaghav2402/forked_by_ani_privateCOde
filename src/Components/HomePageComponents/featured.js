@@ -10,7 +10,7 @@ function FeaturedSection() {
   
   return (
     <Wrapper className='section'>
-      <div style={{ margin: "20px 80px 50px 80px" }}>
+      <div className="Hayein">
         <div className='sshdNBC d-flex justify-content-around align-items-center flex-wrap'>
         {PreLuanchByBuilder.map((elem)=>{
           const URL=`/${elem.projectName}/${elem._id}`
@@ -68,6 +68,9 @@ const Wrapper = styled.section`
     margin-top: 0px;
     margin-bottom: 0px;
   }
+  .Hayein{
+    margin: 20px 80px 50px;
+  }
   .dkMMCKpP {
     width: 544px;
     height: 272px;
@@ -113,11 +116,17 @@ const Wrapper = styled.section`
     .flex1 {
       width: 350px;
     }
+    .Hayein{
+      margin:0px;
+    }
   }
   @media screen and (max-width: 370px) {
     margin: 8% auto;
     .flex1 {
       width: 320px;
+    }
+    .Hayein{
+      margin:0px;
     }
   }
 `;

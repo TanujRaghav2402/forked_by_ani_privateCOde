@@ -130,7 +130,7 @@ function CurrentNavBar() {
             </li>
           </ul>
           <ul className='ulfx _2grx'>
-            <span>+91 9811750130</span>
+            <span>9811750130</span>
           </ul>
         </div>
       </div>
