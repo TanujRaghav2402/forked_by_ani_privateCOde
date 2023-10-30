@@ -16,6 +16,8 @@ function FeaturedSection() {
           const URL=`/${elem.projectName}/${elem._id}`
           const name=elem.builderName.charAt(0).toUpperCase() + elem.builderName.slice(1);
           const Status=elem.status.charAt(0).toUpperCase() + elem.status.slice(1);
+          const CityUpper = elem.city.charAt(0).toUpperCase() + elem.city.slice(1);
+          const Configurations = elem.configuration.replaceAll("-",",")
           return (
             <div className='flex1 mt-3 mb-3'>
             <Link to={URL}>
@@ -28,11 +30,11 @@ function FeaturedSection() {
             </div>
             <div className='pad'>
               <p className='ft-sz-25 _2rhE-'>{elem.projectName}</p>
-              <p className='ft-cl-gr'>{elem.city} · {elem.location} </p>
+              <p className='ft-cl-gr'>{CityUpper} · {elem.location} </p>
               <div className="_1Hy63 d-flex justify-content-between align-items-center">
               <div style={{width:"fit-content"}}> 
                 <p className='smallText _2rhE- li-ht-22'>{name} · 2023 · {Status}</p>
-                <p className='smallText _2rhE- li-ht-22'>74 units · {elem.configuration}</p>
+                <p className='smallText _2rhE- li-ht-22'>74 units · {Configurations}</p>
               </div>
               </div>
             </div>

@@ -90,7 +90,7 @@ function PropViewCard(elem) {
               className='cmMidSec d-flex justify-content-between '
               style={{ width: "85%" }}>
               <div className='BhCl d-flex flex-column'>
-                <span className='ft-sz-15 font-weight-bold'>₹ {price/10} CR</span>
+                <span className='ft-sz-15 font-weight-bold'>₹ {price} CR</span>
                 <span className='ft-sz-10 ft-cl-gr'>₹ 34,570/sq.ft</span>
               </div>
               <div className='BhCl d-flex flex-column'>

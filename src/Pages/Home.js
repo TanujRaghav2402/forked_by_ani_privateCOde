@@ -115,6 +115,9 @@ const Wrapper = styled.section`
       font-size: x-large;
       margin: 30px 30px !important;
     }
+    .djqwUUJNCO{
+      height:60vh !important;
+    }
   }
   @media screen and (max-width: 1800px) {
     .djqwUUJNCO {
