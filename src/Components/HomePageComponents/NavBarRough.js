@@ -56,24 +56,24 @@ function CurrentNavBar() {
             <div className='MBflx' style={{background:"red"}}>
           <ul className='ulfx _1grx flex-column'>
             <li>
-              <Link to={ROOT} className='linkEl'>
+              <Link to={ROOT} className='linkEl' onClick={() => setShowNav(!showNav)}>
                 Home
               </Link>
             </li>
             <li>
-              <Link to={ABOUT} className='linkEl'>
+              <Link to={ABOUT} className='linkEl' onClick={() => setShowNav(!showNav)}>
                 About
               </Link>
             </li>
             
             <li className='_3px49x'>
-               <Link to={URL} className='linkEl'>
+               <Link to={URL} className='linkEl' onClick={() => setShowNav(!showNav)}>
                 Projects
                </Link>
             </li>
 
             <li>
-              <Link to={BLOG} className='linkEl'>
+              <Link to={BLOG} className='linkEl' onClick={() => setShowNav(!showNav)}>
                 Blog
               </Link>
             </li>
