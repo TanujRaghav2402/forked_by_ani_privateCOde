@@ -116,16 +116,20 @@ function Home() {
 export default Home;
 const Wrapper = styled.section`
 
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 600px) {
     .xjUWI {
       font-size: x-large;
       margin: 30px 30px !important;
     }
     .djqwUUJNCO{
       height:60vh !important;
+      background-image: url("../../Images/Capture2Mobile.png");
+      background-repeat: no-repeat;
+      background-size:cover;
+      background-position:left;
     }
   }
-  @media screen and (max-width: 1800px) {
+  @media screen and (max-width: 1800px) and (min-width: 601px) {
     .djqwUUJNCO {
       background-image: url("../../Images/Capture1.png");
       background-repeat: no-repeat;

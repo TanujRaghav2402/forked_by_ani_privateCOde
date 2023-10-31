@@ -175,7 +175,6 @@ z-index:999;
     display: flex;
     align-items: center;
     background:red;
-    border-radius:0px 0px 10px 10px;
   }
   hr{
     color:black !important;

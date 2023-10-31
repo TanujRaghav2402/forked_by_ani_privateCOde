@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import styled from 'styled-components'
-import { useProductContext } from '../../Context/productContext';
+import { useProductContext } from '../Context/productContext';
 import { InfinitySpin } from  'react-loader-spinner'
 
 function ViewProperty() {
@@ -39,7 +39,7 @@ function ViewProperty() {
   return (
     <Wrapper className="div">
     <div className="formS">
-    <div style={{textAlign:"center",fontSize:"bold",fontSize:"25px",paddingBottom:"10px",borderBottom:"1px solid grey"}}>Project Detail</div>
+    <div style={{textAlign:"center",fontWeight:"bold",fontSize:"25px",paddingBottom:"10px",borderBottom:"1px solid grey"}}>Project Detail</div>
     <form>
     <div style={{marginTop:"20px",marginBottom:"5px",fontWeight:"bold"}}>Project Name</div>
      <input type="text" placeholder="Project Name" name="projectName" readOnly value={projectName}/>

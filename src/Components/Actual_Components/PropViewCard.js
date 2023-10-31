@@ -5,7 +5,7 @@ import { BsFillCameraFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
 function PropViewCard(elem) {
-  const{photo,minCovered_Area,configuration,aboutProject,projectName,location,featured,price,_id} =elem;
+  const{photo,minCovered_Area,configuration,aboutProject,projectName,location,featured,price,_id,url} =elem;
   
   const fullText =aboutProject;
   let [showFullText, setShowFullText] = useState(false);
@@ -21,7 +21,7 @@ function PropViewCard(elem) {
     setIsBookmarked(!isBookmarked);
   };
   const urlProject=projectName.toLowerCase().replaceAll(" ","-")
-  const PropApi=`/${urlProject}/${_id}`
+  const PropApi=`/${url}`
 
   return (
     <Wrapper className='section'>
@@ -139,12 +139,14 @@ function PropViewCard(elem) {
             <hr />
 
             <div className='fedhfmk d-flex justify-content-end'>
-              <button className='px-3 py-1 cbIlMb mr-2 bc-rd-15 ft-sz-13'>
-                View Phone Number
-              </button>
-              <button className='px-3 py-1 sfzzZ bc-rd-15 ft-sz-13'>
-                Contact Us
-              </button>
+              {/*<button className='px-3 py-1 cbIlMb mr-2 bc-rd-15 ft-sz-13'>
+                View hone Number
+                </button> */}
+                <Link to={PropApi}>
+                  <button className='px-3 py-1 sfzzZ bc-rd-15 ft-sz-13'>
+                    View Property
+                  </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -228,6 +230,7 @@ const Wrapper = styled.section`
   .sfzzZ {
     background-color: #56a1fa;
     color: white;
+    border:none;
   }
   .font-weight-bold{
     font-weight:bold;

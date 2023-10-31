@@ -454,6 +454,9 @@ function AdminMain() {
                          <option value="vatika">Vatika</option>
                          <option value="whiteland">Whiteland</option>
                        </select>
+
+                       <div style={{marginTop:"20px",marginBottom:"20px",fontWeight:"bold"}}>About Developer</div>
+                         <textarea id="w3review" name="Aboutdeveloper" rows="5" cols="84" required onChange={handleMainForm}/>
                        
                          </div>
                          <div style={{marginTop:"10px",marginBottom:"10px",fontWeight:"bold"}}>Location</div>
@@ -619,9 +622,8 @@ function AdminMain() {
                     <td>+91 {elem.mobile}</td>
                     <td>{elem.email}</td>
                     <td className="text-center">
-                    <button className="btn btn-sm btn-success px-2" onClick={() =>handleModalShow(index)}>View</button>
-                    <button className="btn btn-sm px-2">Edit</button>
-                    <button className="btn btn-sm btn-danger px-2">Complete</button>
+                    <button className="btn btn-sm  px-2" onClick={() =>handleModalShow(index)}>View</button>
+                    <button className="btn btn-sm btn-danger px-2">Completed</button>
                     <Modal show={showModal === index} onHide={handleModalClose} centered>
                     <Modal.Header closeButton>
                     <Modal.Title>Enquiries Detail</Modal.Title>
