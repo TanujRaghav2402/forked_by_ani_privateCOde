@@ -1,3 +1,6 @@
-# https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Disallow: 
+Disallow: /cgi-bin/
+
+Sitemap: https://www.100acress.com/sitemap.xml
+Sitemap: https://www.100acress.com/image-sitemap.xml
