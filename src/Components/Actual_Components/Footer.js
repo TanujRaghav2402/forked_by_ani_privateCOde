@@ -116,7 +116,7 @@ export default function Footer() {
 
       <div className='text-center p-4 mt-2' style={{ backgroundColor: "red",color:"white" }}>
         © 2023 Copyright: 
-        <a className='text-reset fw-bold' href='https://mdbootstrap.com/'>
+        <a className='text-reset fw-bold' href='https://100acress.com/'>
           {" "}100acress.com
         </a>
       </div>
