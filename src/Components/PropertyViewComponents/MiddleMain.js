@@ -42,9 +42,10 @@ function MiddleMain() {
     getSingleProduct(`${API}/${url}`);
   },[])
   
-  console.log(singleProperty)
+  
   const {city,aboutProject,configuration,location,maxCovered_Area,minCovered_Area,price,projectName,rera_No,status,photo,amentites,floorPlan,sitePlan,builderName,locationMap,BHK_details,Aboutdeveloper, meta_title,meta_description} = singleProperty;
   
+  console.log(meta_description,meta_title);
   if(isSingleLoading || !photo || !floorPlan || !sitePlan || !locationMap){
     return( 
       <div style={{margin:"30vh 30vw 30vh 43vw"}}>
