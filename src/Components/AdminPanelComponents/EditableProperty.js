@@ -398,6 +398,7 @@ function EditableProperty() {
                 <option value='risland'>Risland</option>
                 <option value='rofGroup'>ROF Group</option>
                 <option value='supertech'>SuperTech</option>
+                <option value='suncity'>Suncity Projects Pvt.Ltd</option>
                 <option value='spaze'>Spaze</option>
                 <option value='shapoorji'>Shapoorji Pallonji</option>
                 <option value='smartworld'>Smart World</option>

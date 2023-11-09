@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { RxCross1 } from "react-icons/rx";
 import axios from "axios";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import { useProductContext } from "../../Context/productContext";
-import PropertyCard from "./PropertyCard";
 import Table from "react-bootstrap/Table";
 import { useEnquiryContext } from "../../Context/enquiryContext";
 import ModalProp from "./ModalProp";
@@ -13,6 +12,7 @@ import ModalProjectProp from "./ModalProjectProp";
 import PropModal from "./PropModal";
 import { Link } from "react-router-dom";
 import AddBHK from "./AddBHKProp";
+import CompleteFrontEnquiry from "./CompleteEnquiry";
 
 function AdminMain() {
   const { PreLaunchProperties, isPreLaunchLoading } = useProductContext();
@@ -26,6 +26,7 @@ function AdminMain() {
   const [submited, setSubmitted] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [showBHKModal, setShowBHKModal] = useState(false);
+  const [showConfirmModal, setShowConfirmModal] = useState(false);
 
   const closeSubmit = () => {
     setSubmitted(false);
@@ -44,6 +45,12 @@ function AdminMain() {
   };
   const handleBHKModalClose = (index) => {
     setShowBHKModal(false);
+  };
+  const handleConfirmModalShow = (index) => {
+    setShowConfirmModal(index);
+  };
+  const handleConfirmModalClose = (index) => {
+    setShowConfirmModal(false);
   };
 
   const Elem = [...PreLaunchProperties];
@@ -748,6 +755,7 @@ function AdminMain() {
                                 <option value='risland'>Risland</option>
                                 <option value='rofGroup'>ROF Group</option>
                                 <option value='supertech'>SuperTech</option>
+                                <option value='suncity'>Suncity Projects Pvt.Ltd</option>
                                 <option value='spaze'>Spaze</option>
                                 <option value='shapoorji'>
                                   Shapoorji Pallonji
@@ -1523,7 +1531,8 @@ function AdminMain() {
                                 onClick={() => handleModalShow(index)}>
                                 View
                               </button>
-                              <button className='btn btn-sm btn-danger px-2'>
+                              <button className='btn btn-sm btn-danger px-2'
+                              onClick={()=>handleConfirmModalShow(index)}>
                                 Completed
                               </button>
                               <Modal
@@ -1543,6 +1552,20 @@ function AdminMain() {
                                     Close
                                   </Button>
                                 </Modal.Footer>
+                              </Modal>
+                            
+                              {/*  Mark Complete Modal  */}
+                              <Modal
+                                show={showConfirmModal === index}
+                                onHide={handleConfirmModalClose}
+                                >
+                                <Modal.Header closeButton>
+                                  <Modal.Title>Completion Confirmation</Modal.Title>
+                                </Modal.Header>
+                                <Modal.Body>
+                                  <CompleteFrontEnquiry key={elem._id} {...elem} />
+                                </Modal.Body>
+                                
                               </Modal>
                             </td>
                           </tr>
@@ -1590,7 +1613,8 @@ function AdminMain() {
                                 onClick={() => handleModalShow(index)}>
                                 View
                               </button>
-                              <button className='btn btn-sm btn-danger px-2'>
+                              <button className='btn btn-sm btn-danger px-2'
+                              >
                                 Completed
                               </button>
                               <Modal
@@ -1611,6 +1635,9 @@ function AdminMain() {
                                   </Button>
                                 </Modal.Footer>
                               </Modal>
+
+                        
+                              
                             </td>
                           </tr>
                         );
