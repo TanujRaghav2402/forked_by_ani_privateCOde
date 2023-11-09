@@ -123,7 +123,9 @@ function Home() {
         <div>
           <a
             href='https://api.whatsapp.com/send?phone=9811750130'
-            class='dd-m-whatsapp'>
+            class='dd-m-whatsapp'
+            target="_blank"
+            >
             <span class='icon'></span>
           </a>
         </div>

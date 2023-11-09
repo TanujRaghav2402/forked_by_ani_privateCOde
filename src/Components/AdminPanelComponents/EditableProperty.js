@@ -373,6 +373,7 @@ function EditableProperty() {
                 <option value='aipl'>Aipl</option>
                 <option value='amb'>Amb</option>
                 <option value='ambience'>Ambience</option>
+                <option value='Anantraj Estates and Birla Estates'>Anantraj Estates and Birla Estates</option>
                 <option value='ats'>Ats</option>
                 <option value='Bestech'>Bestech</option>
                 <option value='bptp'>Bptp</option>
