@@ -549,12 +549,13 @@ function MiddleMain() {
                         placeholder='Full Name'
                         required
                       className="mb-2 me-2 w-100 p-1 px-3"
-                      style={{outline:"none",border:"1px solid #ced4da",color: "#495057"}}
+                      style={{outline:"none",border:"1px solid #ced4da",color: "#495057",borderRadius:"0.25rem"}}
                       />
                       <input
                       className="mb-2 me-2 w-100 p-1 px-3"
                         type='number'
                         name='mobile'
+                        min={0}
                         onChange={onChange}
                         id='validationCustom02'
                         placeholder='Mobile Number'
@@ -564,7 +565,7 @@ function MiddleMain() {
                           }
                         }}
                         required
-                        style={{outline:"none",border:"1px solid #ced4da",color: "#495057"}}
+                        style={{outline:"none",border:"1px solid #ced4da",color: "#495057",borderRadius:"0.25rem"}}
                       />
                       <input
                         type='email'
@@ -573,7 +574,7 @@ function MiddleMain() {
                         id='validationCustom03'
                         placeholder='Email Address'
                         className="mb-2 me-2 w-100 p-1 px-3"
-                        style={{outline:"none",border:"1px solid #ced4da",color: "#495057"}}
+                        style={{outline:"none",border:"1px solid #ced4da",color: "#495057",borderRadius:"0.25rem"}}
                       />
                       <button
                         type='submit'
