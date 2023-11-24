@@ -14,7 +14,7 @@ import {
 import { HamburgerIcon, CloseIcon, PhoneIcon } from "@chakra-ui/icons";
 import logoImage from "../Images/100acress.png";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-const Links = ["Home", "About", "Projects", "Blog"];
+const Links = ["Home", "About", "Projects", "Blog",];
 const linksObject = {
   Home: false,
   About: false,
