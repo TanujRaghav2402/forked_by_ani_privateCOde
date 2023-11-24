@@ -1,30 +1,40 @@
-import './App.css';
-import { styled } from 'styled-components';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './Pages/Home';
-import LoginMain from './Components/Actual_Components/LoginMain';
-import AboutPage from './Components/AboutPageComponents/AboutPage';
-import Properties from './Pages/Properties';
-import MiddleMain from './Components/PropertyViewComponents/MiddleMain';
-import BlogMain from './Components/Blog_Components/BlogMain';
-import VerificationForm from './Components/Forms.js/SignUpForm/VerificationForm';
-import AdminMain from './Components/AdminPanelComponents/AdminMain';
-import ProfilePage from './Components/ProfilePage';
-import SingleBlog from './Components/Blog_Components/SingleBlog';
-import PropertyKnow from './Components/KnowAbouts/PropertyKnow';
-import Profile from './Components/ProfileSec_Components/Profile';
-import FinalNavBar from './Components/HomePageComponents/NavBar';
-import Footer from './Components/Actual_Components/Footer';
-import PageNotFound from './Pages/PageNotFound';
-import EditableProperty from './Components/AdminPanelComponents/EditableProperty';
-import CurrentNavBar from './Components/HomePageComponents/NavBarRough';
+/** @format */
 
+import "./App.css";
+import { styled } from "styled-components";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useNavigate,
+  Navigate,
+} from "react-router-dom";
+import Home from "./Pages/Home";
+import LoginMain from "./Components/Actual_Components/LoginMain";
+import AboutPage from "./Components/AboutPageComponents/AboutPage";
+import Properties from "./Pages/Properties";
+import MiddleMain from "./Components/PropertyViewComponents/MiddleMain";
+import BlogMain from "./Components/Blog_Components/BlogMain";
+import VerificationForm from "./Components/Forms.js/SignUpForm/VerificationForm";
+import AdminMain from "./Components/AdminPanelComponents/AdminMain";
+import ProfilePage from "./Components/ProfilePage";
+import SingleBlog from "./Components/Blog_Components/SingleBlog";
+import PropertyKnow from "./Components/KnowAbouts/PropertyKnow";
+import Profile from "./Components/ProfileSec_Components/Profile";
+import FinalNavBar from "./Components/HomePageComponents/NavBar";
+import Footer from "./Components/Actual_Components/Footer";
+import PageNotFound from "./Pages/PageNotFound";
+import EditableProperty from "./Components/AdminPanelComponents/EditableProperty";
+import CurrentNavBar from "./Components/HomePageComponents/NavBarRough";
+import Nav from "./anirudh_comps/nav";
 function App() {
   return (
-    <Wrapper className="section">
+    <Wrapper className='section'>
       <Router>
-      <CurrentNavBar />
+        <Nav />
         <Routes>
+          <Route path='/' element={<Navigate to='/Home' />} />{" "}
+          <Route path='/Home' element={<Home />} />
           <Route path='/' element={<Home />} />
           <Route path='/login' element={<LoginMain />} />
           <Route path='/about' element={<AboutPage />} />
@@ -33,7 +43,10 @@ function App() {
           <Route path='/blog' element={<BlogMain />} />
           <Route path='/form' element={<VerificationForm />} />
           <Route path='/protected/private/admin' element={<AdminMain />} />
-          <Route path='/protected/private/admin/editProject/:url' element={<EditableProperty />} />
+          <Route
+            path='/protected/private/admin/editProject/:url'
+            element={<EditableProperty />}
+          />
           <Route path='/rough' element={<ProfilePage />} />
           <Route path='/blog/:name' element={<SingleBlog />} />
           <Route path='/knowabouts' element={<PropertyKnow />} />
@@ -43,13 +56,13 @@ function App() {
         <Footer />
       </Router>
     </Wrapper>
-    );
+  );
 }
 
 export default App;
-const Wrapper=styled.section`
+const Wrapper = styled.section`
 font-family: 'DM Sans', sans-serif;
 h1,h2,h3,h4,h5,h6{
   font-family: 'Inter', sans-serif; !important;
 }
-`
+`;

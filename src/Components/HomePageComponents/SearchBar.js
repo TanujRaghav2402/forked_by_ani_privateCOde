@@ -6,19 +6,18 @@ import Locations from "./Locations";
 
 function SearchBar() {
   let [showText, setShowText] = useState(true);
-  
-  useEffect(()=>{
-    let divSelected=document.querySelectorAll(".options")
-    divSelected.forEach((div)=>{
-      div.addEventListener('click',()=>{
-        divSelected.forEach((div)=>{
-          div.classList.remove('active');
-        })
-        div.classList.add('active');
-      })
-    })
-  },[]);
-  
+
+  useEffect(() => {
+    let divSelected = document.querySelectorAll(".options");
+    divSelected.forEach((div) => {
+      div.addEventListener("click", () => {
+        divSelected.forEach((div) => {
+          div.classList.remove("active");
+        });
+        div.classList.add("active");
+      });
+    });
+  }, []);
 
   function setHandleState() {
     setShowText(!showText);
@@ -42,12 +41,12 @@ function SearchBar() {
     }
     setHandleState();
   }
-  
+
   return (
     <Wrapper className='section'>
       <div
         className='qsbWrapper'
-        style={{maxWidth:"950px",marginLeft:"auto",marginRight:"auto"}}>
+        style={{ maxWidth: "950px", marginLeft: "auto", marginRight: "auto" }}>
         <div className='SJDMls'>
           <div className='options active'>Buy</div>
           <div className='options'>Rent</div>
@@ -74,7 +73,7 @@ function SearchBar() {
                       maxHeight: "500px",
                     }}>
                     <div
-                    className="plMDJ12"
+                      className='plMDJ12'
                       style={{
                         position: "relative",
                         overflow: "auto scroll",
@@ -187,12 +186,18 @@ function SearchBar() {
                                   <span className='sublabel'>(the best)</span>
                                 </div>
                               </li>
-                              <li data-value='Residencial' index='1' class='bhkOptions'>
+                              <li
+                                data-value='Residencial'
+                                index='1'
+                                class='bhkOptions'>
                                 <div>
                                   <span>Residencial</span>
                                 </div>
                               </li>
-                              <li data-value='Commercial' index='2' class='bhkOptions'>
+                              <li
+                                data-value='Commercial'
+                                index='2'
+                                class='bhkOptions'>
                                 <div>
                                   <span>Commercial</span>
                                 </div>
@@ -316,16 +321,20 @@ function SearchBar() {
                 </div>
               </div>
             </div>
-            <div className='qsbSubmit'><img width="30" height="30" src="https://img.icons8.com/ios/50/FFFFFF/search--v1.png" alt="search--v1"/>
-          </div>
+            <div className='qsbSubmit'>
+              <img
+                width='30'
+                height='30'
+                src='https://img.icons8.com/ios/50/FFFFFF/search--v1.png'
+                alt='search--v1'
+              />
+            </div>
           </div>
           <div className='errorMsg'>
             Please enter keywords to search for relevant
           </div>
         </div>
-        
       </div>
-      
     </Wrapper>
   );
 }
@@ -338,8 +347,8 @@ const Wrapper = styled.section`
   div {
     box-sizing: border-box;
   }
-  .dsdwDD{
-    color:white;
+  .dsdwDD {
+    color: white;
   }
   .qsbWrapper {
     display: flex;
@@ -708,75 +717,79 @@ const Wrapper = styled.section`
     font-size: 15px !important;
     padding-right: 2% !important;
   }
-  .SJDMls>div:hover{
-    cursor:pointer;
+  .SJDMls > div:hover {
+    cursor: pointer;
   }
-  .SJDMls>div.active{
-    font-size:20px;
-    color:red;
+  .SJDMls > div.active {
+    font-size: 20px;
+    color: red;
   }
-@media screen and (max-width:500px){
-  .eEbfFv,.SJDMls,.qsbExperience,.locationSugg,.pipe{
-    display:none;
+  @media screen and (max-width: 500px) {
+    .eEbfFv,
+    .SJDMls,
+    .qsbExperience,
+    .locationSugg,
+    .pipe {
+      display: none;
+    }
+    .qsb {
+      overflow: hidden;
+      width: 100%;
+    }
+    .keywordSugg {
+      width: 100%;
+      overflow: hidden;
+    }
+    .plMDJ12 {
+      overflow: hidden !important;
+    }
+    .qsbWrapper .qsb .qsbSubmit {
+      padding: 10px 10px !important;
+    }
+    .qsbWrapper .qsb .searchIcon {
+      display: none;
+    }
+    .qsbWrapper {
+      margin: 8% 3% 10% 5% !important;
+    }
+    .bVKmXz {
+      display: none;
+    }
   }
-  .qsb{
-    overflow:hidden;
-    width:100%;
+  @media screen and (max-width: 900px) {
+    .qsbWrapper {
+      margin: 8% 2% 10% 2% !important;
+    }
+    .suggestor-wrapper {
+      width: 90%;
+    }
+    .plMDJ12 {
+      overflow: hidden !important;
+    }
+    .qsbWrapper .qsb .keywordSugg .suggestor-box {
+      width: 223px;
+    }
+    .qsbWrapper .qsb .qsbSubmit {
+      padding: 15px 15px !important;
+    }
   }
-  .keywordSugg{
-    width:100%;
-    overflow:hidden;
+  @media screen and (max-width: 885px) and (min-width: 860px) {
+    .qsbWrapper .qsb .keywordSugg .suggestor-box {
+      width: 293px;
+    }
   }
-  .plMDJ12{
-    overflow:hidden !important;
+  @media screen and (max-width: 770px) and (min-width: 750px) {
+    .qsbWrapper .qsb .keywordSugg .suggestor-box {
+      width: 223px;
+    }
+    .qsbWrapper .qsb .qsbSubmit {
+      padding: 8px 8px !important;
+      margin-left: 0px !important;
+    }
   }
-  .qsbWrapper .qsb .qsbSubmit{
-    padding:10px 10px !important;
+  @media screen and (max-width: 1200px) and (min-width: 900px) {
+    .qsbWrapper {
+      margin: 4.5em auto !important;
+    }
   }
-  .qsbWrapper .qsb .searchIcon{
-    display:none;
-  }
-  .qsbWrapper{
-    margin:8% 3% 10% 5% !important;
-  }
-  .bVKmXz{
-    display:none;
-  }
-}
-@media screen and (max-width:900px){
-  .qsbWrapper{
-    margin:8% 2% 10% 2% !important;
-  }
-  .suggestor-wrapper{
-    width:90%;
-  }
-  .plMDJ12{
-    overflow:hidden !important;
-  }
-  .qsbWrapper .qsb .keywordSugg .suggestor-box {
-    width: 223px;
-  }
-  .qsbWrapper .qsb .qsbSubmit{
-    padding:15px 15px !important;
-  }
-}
-@media screen and (max-width:885px) and (min-width:860px){
-  .qsbWrapper .qsb .keywordSugg .suggestor-box {
-    width: 293px;
-  }
-}
-@media screen and (max-width:770px) and (min-width:750px){
-  .qsbWrapper .qsb .keywordSugg .suggestor-box {
-    width: 223px;
-  }
-  .qsbWrapper .qsb .qsbSubmit{
-    padding:8px 8px !important;
-    margin-left:0px !important;
-  }
-}
-@media screen and (max-width:1200px) and (min-width:900px){
-  .qsbWrapper{
-    margin:4.5em auto!important;
-  }
-}
 `;
