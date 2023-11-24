@@ -40,7 +40,7 @@ function Home() {
         style={{
           height: "70vh",
           width: "100%",
-          paddingTop: "20rem",
+          paddingTop: "16rem", // to adjust the height of SearchBar
           boxSizing: "border-box",
         }}
         className='djqwUUJNCO'>
