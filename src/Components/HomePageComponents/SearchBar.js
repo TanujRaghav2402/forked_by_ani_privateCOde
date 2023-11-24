@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Locations from "./Locations";
 
+//  replace all let with const
 function SearchBar() {
   let [showText, setShowText] = useState(true);
 
@@ -22,7 +23,7 @@ function SearchBar() {
   function setHandleState() {
     setShowText(!showText);
   }
-
+// to use useRef hook here to improve efficiency
   function setHandleFocus() {
     var element = document.getElementsByClassName("dropDownPrimaryContainer");
 
@@ -70,7 +71,7 @@ function SearchBar() {
                       overflow: "hidden",
                       height: "auto",
                       minHeight: "0px",
-                      maxHeight: "500px",
+                      maxHeight: "500px",// maybe this one to edit
                     }}>
                     <div
                       className='plMDJ12'
