@@ -38,7 +38,7 @@ function Home() {
       </Helmet>
       <div
         style={{
-          height: "80vh",
+          height: "70vh",
           width: "100%",
           paddingTop: "20rem",
           boxSizing: "border-box",
@@ -224,3 +224,4 @@ const Wrapper = styled.section`
     
   }
 `;
+// capture 1 is at home
