@@ -1,12 +1,11 @@
 /** @format */
 
-import "./App.css";
+import React from "react";
 import { styled } from "styled-components";
 import {
   BrowserRouter as Router,
   Routes,
   Route,
-  useNavigate,
   Navigate,
 } from "react-router-dom";
 import Home from "./Pages/Home";
@@ -25,23 +24,29 @@ import FinalNavBar from "./Components/HomePageComponents/NavBar";
 import Footer from "./Components/Actual_Components/Footer";
 import PageNotFound from "./Pages/PageNotFound";
 import EditableProperty from "./Components/AdminPanelComponents/EditableProperty";
-import CurrentNavBar from "./Components/HomePageComponents/NavBarRough";
 import Nav from "./anirudh_comps/nav";
+import Form from "./Pages/Form";
+
 function App() {
+  const registeredData = {
+    name: 'John Doe',
+    email: 'johndoe@example.com',
+    mobile: '1234567890'
+  };
+
   return (
     <Wrapper className='section'>
       <Router>
         <Nav />
         <Routes>
-          <Route path='/' element={<Navigate to='/Home' />} />{" "}
+          <Route path='/' element={<Navigate to='/Home' />} />
           <Route path='/Home' element={<Home />} />
-          <Route path='/' element={<Home />} />
           <Route path='/login' element={<LoginMain />} />
           <Route path='/about' element={<AboutPage />} />
           <Route path='/projects' element={<Properties />} />
           <Route path='/:url/' element={<MiddleMain />} />
           <Route path='/blog' element={<BlogMain />} />
-          <Route path='/form' element={<VerificationForm />} />
+          <Route path='/form' element={<Form registeredData={registeredData} />} />
           <Route path='/protected/private/admin' element={<AdminMain />} />
           <Route
             path='/protected/private/admin/editProject/:url'
@@ -60,9 +65,16 @@ function App() {
 }
 
 export default App;
+
 const Wrapper = styled.section`
-font-family: 'DM Sans', sans-serif;
-h1,h2,h3,h4,h5,h6{
-  font-family: 'Inter', sans-serif; !important;
-}
+  font-family: 'DM Sans', sans-serif;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Inter', sans-serif !important;
+  }
 `;

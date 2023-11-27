@@ -1,17 +1,24 @@
+/** @format */
+
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Link, useNavigate } from "react-router-dom";
 import { BLOG, REGISTER, ROOT } from "../../lib/route";
-import axios from "axios"
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
+
+import axios from "axios";
+import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
 import Home from "../../Pages/Home";
+
 
 
 function LoginMain() {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+
+
   const navigate = useNavigate();
   useEffect(() => {
     const signUpButton = document.getElementById("signUp");
@@ -21,110 +28,170 @@ function LoginMain() {
 
     signUpButton.addEventListener("click", () => {
       container.classList.add("right-panel-active");
-      clseBtn.style.color="red";
+      clseBtn.style.color = "red";
     });
 
     signInButton.addEventListener("click", () => {
       container.classList.remove("right-panel-active");
-      clseBtn.style.color="white";
+      clseBtn.style.color = "white";
     });
   }, []);
 
-  const URLREGISTER="https://one00acress.onrender.com/postPerson/register";
-  const URLLOGIN="https://one00acress.onrender.com/postPerson/verify_Login"
+  const URLREGISTER = "https://one00acress.onrender.com/postPerson/register";
+  const URLLOGIN = "https://one00acress.onrender.com/postPerson/verify_Login";
 
-  const[formDataRegister,setFormDataRegister] = useState({
-    name:"",
-    email:"",
-    mobile:"",
-    address:"",
-    password:"",
-    cpassword:"",
-  })
+  const [formDataRegister, setFormDataRegister] = useState({
+    name: "",
+    email: "",
+    mobile: "",
+    password: "",
+    cpassword: "",
+  });
 
-  const[formDataLogin,setFormDataLogin] = useState({
+  const [formDataLogin, setFormDataLogin] = useState({
     email: "",
     password: "",
-  })
-  function handleLoginChange(e){
-    setFormDataLogin({...formDataLogin,[e.target.name]:e.target.value})
-    console.log()
+  });
+  function handleLoginChange(e) {
+    setFormDataLogin({ ...formDataLogin, [e.target.name]: e.target.value });
+    console.log();
   }
-  function handleChange(e){
-    setFormDataRegister({...formDataRegister,[e.target.name]:e.target.value});
+  function handleChange(e) {
+    setFormDataRegister({
+      ...formDataRegister,
+      [e.target.name]: e.target.value,
+    });
   }
-  function submitRegister(e){
+    
+
+
+  function submitRegister(e) {
     e.preventDefault();
-    // axios.post(URL,{formData})
-    // .then(res=>{
-    //   console.log(res)
-    // })
-    // .catch(err=>console.log(err))
+
     axios({
-      method:"post",
-      url:URLREGISTER,
-      data:formDataRegister,
+      method: "post",
+      url: URLREGISTER,
+      data: formDataRegister,
     })
-    .then(res=>{
-      console.log(res.data.message)
-      navigate("/");
-    })
-    .catch(err=>{
-      console.log(err.name);
-      handleShow()
-    })
+      .then((res) => {
+        console.log(res.data.message);
+        navigate("/");
+      })
+      .catch((err) => {
+        if (err.response && err.response.status === 400) {
+        } else {
+          console.log(err.name);
+          handleShow();
+        }
+      });
   }
 
-  function submitLogin(e){
+  function submitLogin(e) {
     e.preventDefault();
     axios({
-      method:"post",
-      url:URLLOGIN,
-      data:formDataLogin,
+      method: "post",
+      url: URLLOGIN,
+      data: formDataLogin,
     })
-    .then(res=>{
-      console.log(res.data.message)
-      
-    })
-    .catch(err=>{
-      console.log(err.name);
-      handleShow()
-    })
+      .then((res) => {
+        console.log(res.data.message);
+      })
+      .catch((err) => {
+        console.log(err.name);
+        handleShow();
+      });
   }
 
   return (
     <Wrapper className='section'>
-    <Modal show={show} onHide={handleClose}>
-        <Modal.Body style={{textAlign:"center"}}>Email Already Registered</Modal.Body>
-      </Modal>
       <div className='container' id='container'>
-      <Link to={ROOT}>
-      <i class="fa fa-close" id="closeBtn" title="Close" style={{zIndex:"999",position:"absolute",right:"10px",top:"5px",fontSize:"24px",color:"white",cursor:"pointer"}}></i>
-      </Link> 
-      <div className='form-container sign-up-container'>
+        <Link to={ROOT}>
+          <i
+            class='fa fa-close'
+            id='closeBtn'
+            title='Close'
+            style={{
+              zIndex: "999",
+              position: "absolute",
+              right: "10px",
+              top: "5px",
+              fontSize: "24px",
+              color: "white",
+              cursor: "pointer",
+            }}></i>
+        </Link>
+        <div className='form-container sign-up-container'>
           <form onSubmit={submitRegister}>
-            <h1 style={{fontSize:"30px"}}>Create Account</h1>
-            <input type='text' required placeholder='Name' onChange={handleChange} name="name"/>
-            <input type='email' required placeholder='Email' onChange={handleChange} name="email"/>
-            <input type='number' required placeholder='Mobile No' onChange={handleChange} name="mobile"/>
-            <input type='text' required placeholder='Address' onChange={handleChange} name="address"/>
-            <input type='password' required placeholder='Password' onChange={handleChange} name="password"/>
-            <input type='password' required placeholder='Confirm Password' onChange={handleChange} name="cpassword"/>
-            <button type="submit">Sign Up</button>
+            <h1 style={{ fontSize: "30px" }}>Create Account</h1>
+             <input
+              type='text'
+              required
+              placeholder='Name'
+              onChange={handleChange}
+             name='name'
+            />
+            <input
+              type='email'
+              required
+              placeholder='Email'
+              onChange={handleChange}
+              name='email'
+            />
+            <input
+              type='number'
+              required
+              placeholder='Mobile No'
+              onChange={handleChange}
+              name='mobile'
+            />
+         
+            <input
+              type='password'
+              required
+              placeholder='Password'
+              onChange={handleChange}
+              name='password'
+            />
+            <input
+              type='password'
+              required
+              placeholder='Confirm Password'
+              onChange={handleChange}
+              name='cpassword'
+            />
+            <button type='submit'>Sign Up</button>
           </form>
         </div>
-        <div className='form-container sign-in-container'>
+
+        <div className='form-container sign-in-container '>
           <form onSubmit={submitLogin}>
             <h1>Sign in</h1>
-            
             <span>or use your account</span>
-            <input type='email' placeholder='Email' name="email" onChange={handleLoginChange}/>
-            <input type='password' placeholder='Password' name="password" onChange={handleLoginChange}/>
+            <input
+              type='email'
+              placeholder='Email'
+              name='email'
+              onChange={handleLoginChange}
+            />
+            <input
+              type='password'
+              placeholder='Password'
+              name='password'
+              onChange={handleLoginChange}
+            />
             <a href='#'>Forgot your password?</a>
-            <button type="submit">Sign In</button>
+            <button type='submit'>Sign In</button>
+            
+            <button id='signUp' className="d-none d-sm-block">
+            Sign Up
+          </button>
+          
           </form>
+          
+          
         </div>
-        <div className='overlay-container'>
+
+        <div className='overlay-container d-none d-sm-block '>
           <div className='overlay'>
             <div className='overlay-panel overlay-left'>
               <h1>Welcome Back!</h1>
@@ -145,6 +212,7 @@ function LoginMain() {
           </div>
         </div>
       </div>
+    
     </Wrapper>
   );
 }
@@ -158,17 +226,11 @@ const Wrapper = styled.section`
   align-items: center;
   flex-direction: column;
   height: 100vh;
-  
 
   h1 {
     font-weight: bold;
     margin: 0;
   }
-
-  h2 {
-    text-align: center;
-  }
-
   p {
     font-size: 14px;
     font-weight: 100;
@@ -189,7 +251,7 @@ const Wrapper = styled.section`
   }
 
   button {
-    margin-top:5px;
+    margin-top: 5px;
     border-radius: 20px;
     border: 1px solid #ff4b2b;
     background-color: #ff4b2b;
@@ -232,7 +294,7 @@ const Wrapper = styled.section`
     padding: 12px 15px;
     margin: 5px 0;
     width: 100%;
-    border-radius:12px;
+    border-radius: 12px;
   }
 
   .container {
@@ -241,22 +303,100 @@ const Wrapper = styled.section`
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     position: relative;
     overflow: hidden;
-    width: 768px;
-    max-width: 100%;
-    min-height: 480px;
+    width: 80%;
+    height: auto;
+    max-width: 80%;
+    min-height: 80vh;
   }
 
   .form-container {
     position: absolute;
     top: 0;
     height: 100%;
-    transition: all 0.6s ease-in-out;
+    // transition: all 0.6s ease-in-out;
   }
 
   .sign-in-container {
     left: 0;
-    width: 50%;
+    width: auto;
     z-index: 2;
+  }
+
+  @media screen and (min-width: 375px) {
+    .sign-in-container {
+      left: 0;
+      width: 100%;
+      z-index: 2;
+    }
+  }
+  @media screen and (min-width: 320px) {
+    .sign-in-container {
+      left: 0;
+      width: 100%;
+      z-index: 2;
+    }
+  }
+
+
+
+  @media screen and (min-width: 425px) {
+    .sign-in-container,
+    .sign-up-container {
+      width: 50%;
+    }
+  
+    .sign-up-container {
+      opacity: 0;
+      z-index: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @media screen and (min-width: 425px) and (max-width: 768px) {
+    .sign-in-container {
+      left: 0;
+      width: 100%;
+      z-index: 2;
+    }
+
+    .sign-up-container {
+      width: 50%;
+    }
+  }
+
+
+
+  // @media screen and (min-width: 768px) and (max-width: 1024px) {
+  //   .sign-in-container {
+  //     left: 0;
+  //     width: 50%;
+  //     z-index: 2;
+  //   }
+
+  //   .sign-up-container {
+  //     width: 50%;
+  //   }
+  // }
+
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
+    .sign-in-container {
+      left: 0;
+      width: 50%;
+      z-index: 2;
+    }
+  
+    .sign-up-container {
+      width: 50%;
+      opacity: 0;
+      z-index: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @media screen and (min-width: 1025px) and (max-width: 1440px) {
+    .container {
+      max-width: 80%;
+    }
   }
 
   .container.right-panel-active .sign-in-container {
@@ -371,13 +511,5 @@ const Wrapper = styled.section`
     margin: 0 5px;
     height: 40px;
     width: 40px;
-  }
-  @media screen and (max-width: 650px){
-    form{
-        padding:0px 10px;
-    }
-    .overlay-panel{
-        padding:0px 10px;
-    }
   }
 `;

@@ -13,10 +13,12 @@ import {
 import { SearchIcon } from "@chakra-ui/icons";
 
 function Search() {
-  const [isSmallScreen, setIsSmallScreen] = useState(false);
+  const [isSmallScreen, setIsSmallScreen] = useState();
+  window.innerWidth <= 480 && console.log(isSmallScreen);
   useEffect(() => {
     const handleResize = () => {
       setIsSmallScreen(window.innerWidth >= 480);
+      console.log();
     };
     handleResize();
     window.addEventListener("resize", handleResize);
@@ -29,6 +31,7 @@ function Search() {
       p={4}
       sx={{
         borderRadius: "50px",
+        justifyContent: isSmallScreen ? "space-between" : "flex-start",
       }}>
       <HStack alignItems='center'>
         <Center>
@@ -41,7 +44,9 @@ function Search() {
             w={{ base: "full", md: "auto" }}
           />
         </Center>
-        <Divider orientation='vertical' m={3} h={6} borderColor='gray.300' />
+        {isSmallScreen && (
+          <Divider orientation='vertical' m={3} h={6} borderColor='gray.300' />
+        )}
 
         {isSmallScreen && (
           <Select color='#7480a0' placeholder='Select type' variant='ghost'>
@@ -51,12 +56,21 @@ function Search() {
         )}
 
         <Center>
-          <Divider orientation='vertical' m={3} h={6} borderColor='gray.300' />
-          <Input
-            variant='unstyled'
-            placeholder='Enter location'
-            w={{ base: "full", md: "auto" }}
-          />
+          {isSmallScreen && (
+            <Divider
+              orientation='vertical'
+              m={3}
+              h={6}
+              borderColor='gray.300'
+            />
+          )}
+          {isSmallScreen && (
+            <Input
+              variant='unstyled'
+              placeholder='Enter location'
+              w={{ base: "full", md: "auto" }}
+            />
+          )}
           <Box p='3' bg='red'>
             <SearchIcon color='white' />
           </Box>
